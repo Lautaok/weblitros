@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b1eefa80;
+    background-image: url('img/ai-generated-water-picture_23-2150644628.jpg'); /* Ruta a la imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center center; /* Centra la imagen en el fondo */
+}
+*{
+    margin: 0;
+    padding: 0;
+    margin-top: 0 auto;
+}
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: rgb(0,134,170);
+    background: linear-gradient(90deg, rgba(0,134,170,0.33111111111111113) 0%, rgba(0,42,60,0.11333333333333329) 12%);
+    padding: 20px;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #0c0c0c;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    font-size: 1em;
+    background-color: #000000d3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0000002c;
+}
+
+#results {
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
+#results p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+/* Estilos para el footer */
+.footer {
+    background-color: #f1f1f10e; /* Color de fondo del footer */
+    color: #000000; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    padding: 10px 0; /* Espaciado interno */
+    position: fixed; /* Fijo en la parte inferior */
+    bottom: 0; /* Alineado en la parte inferior */
+    width: 100%; /* Ancho completo */
+    font-size: 14px; /* Tamaño del texto */
+    border-top: 1px solid #888888; /* Línea superior opcional */
+    font-weight: lighter;
+}
+
+.footer p {
+    margin: 0; /* Eliminar márgenes */
+}
+
+/* Estilos para el footer */
+.footer {
+    background-color: #f1f1f11e; /* Color de fondo del footer */
+    color: #333; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    padding: 10px 0; /* Espaciado interno */
+    position: fixed; /* Fijo en la parte inferior */
+    bottom: 0; /* Alineado en la parte inferior */
+    width: 100%; /* Ancho completo */
+    font-size: 14px; /* Tamaño del texto */
+    border-top: 1px solid #cccccc23; /* Línea superior opcional */
+}
+
+.footer p {
+    margin: 0; /* Eliminar márgenes */
+}
+
+
+
+/* Media query para dispositivos móviles */
+@media (max-width: 420px) {
+    body {
+        
+        background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+        background-position: center center; /* Centra la imagen en el fondo */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+    }
+    .container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    label {
+        font-size: 20px;
+    }
+
+    input, button {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .footer {
+        font-size: 12px;
+        padding: 8px 0;
+    }
+}
