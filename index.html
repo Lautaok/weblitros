@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Productos para Piscinas</title>
+    <link rel="stylesheet" href="estilo.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  </head>
+  <body>
+    <div class="container animate__animated animate__headShake">
+      <h1>Calculadora de Productos para Piscinas</h1>
+      <form id="calculatorForm">
+        <label for="poolVolume">Volumen de la piscina (en litros):</label>
+        <input type="number" id="poolVolume" name="poolVolume" required />
+        <button type="submit">Calcular</button>
+      </form>
+      <div id="results">
+        <p id="chlorineResult"></p>
+        <p id="algaecideResult"></p>
+        <p id="clarifierResult"></p>
+        <p id="cloroPolvoResult"></p>
+      </div>
+    </div>
+    <footer class="footer animate__animated animate__lightSpeedInLeft">
+      <p>&copy; 2024 Lautaro Vera. Todos los derechos reservados.</p>
+    </footer>
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+  </body>
+</html>
