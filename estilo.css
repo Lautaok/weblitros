@@ -17,16 +17,18 @@ body {
     background: rgb(0,134,170);
     background: linear-gradient(90deg, rgba(0,134,170,0.33111111111111113) 0%, rgba(0,42,60,0.11333333333333329) 12%);
     padding: 20px;
-    box-shadow: 0 0 10px rgb(0, 0, 0);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
     border-radius: 10px;
 }
 
 h1 {
     text-align: center;
-    color: #0c0c0c;
-    font-style: italic;
+    color: #000000;
+    font-style:normal;
     font-weight: bold;
     text-align: center;
+
+    
 }
 
 form {
@@ -39,7 +41,7 @@ label {
     font-size: 25px;
     color: rgb(0, 0, 0);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style: italic;
+    font-style:normal;
     font-weight: bold;
     text-align: center;
 }
@@ -48,21 +50,24 @@ input {
     padding: 10px;
     font-size: 1em;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 80px;
 }
 
 button {
     padding: 10px;
     font-size: 1em;
-    background-color: #000000d3;
+    background-color: #000000;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 80px;
     cursor: pointer;
+    font-size: larger;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
 }
 
 button:hover {
-    background-color: #0000002c;
+    background-color: #0000009d;
 }
 
 #results {
@@ -70,7 +75,7 @@ button:hover {
     text-align: center;
     font-style: italic;
     font-weight: bold;
-    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #results p {
@@ -113,6 +118,12 @@ button:hover {
     margin: 0; /* Eliminar márgenes */
 }
 
+h2{
+    text-align: left;
+    color: #000000;
+    font-style: italic;
+    font-weight: bold;
+}
 
 
 /* Media query para dispositivos móviles */
@@ -145,4 +156,5 @@ button:hover {
         font-size: 12px;
         padding: 8px 0;
     }
+    
 }

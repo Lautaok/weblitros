@@ -1,3 +1,4 @@
+
 document.getElementById('calculatorForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -5,8 +6,8 @@ document.getElementById('calculatorForm').addEventListener('submit', function(e)
     
     if (poolVolume > 0) {
         const chlorineAmount = (poolVolume * 1) / 20000; // 1 litro de cloro por 20,000 litros
-        const algaecideAmount = (poolVolume * 80) / 20000; // 80 ml de alguicida por 20,000 litros
-        const clarifierAmount = (poolVolume * 200) / 20000; // 200 ml de clarificante por 20,000 litros
+        const algaecideAmount = (poolVolume * 250) / 50000; // 80 ml de alguicida por 20,000 litros
+        const clarifierAmount = (poolVolume * 500) / 50000; // 200 ml de clarificante por 20,000 litros
         const cloroPolvoAmount = (poolVolume * 4) / 10000; // 4 cucharadas de cloro en polvo cada 10.000 litros
         
         document.getElementById('chlorineResult').innerText = `Cloro Líquido: ${chlorineAmount.toFixed(2)} litros`;
