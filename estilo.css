@@ -110,8 +110,8 @@ button:hover {
 
 /* Estilos para el footer */
 .footer {
-    background-color: #f1f1f11e; /* Color de fondo del footer */
-    color: #333; /* Color del texto */
+    background-color: #f1f1f100; /* Color de fondo del footer */
+    color: #000000; /* Color del texto */
     text-align: center; /* Centrar el texto */
     padding: 10px 0; /* Espaciado interno */
     position: fixed; /* Fijo en la parte inferior */
