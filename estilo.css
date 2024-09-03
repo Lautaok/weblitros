@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     /*background-color: #b1eefa80;*/
-    background-image: url('img/foto.agua.jpg'); /* Ruta a la imagen de fondo */
+    background-image: url('img/fotoagua.jpg'); /* Ruta a la imagen de fondo */
     background-size: cover; /* Asegura que la imagen cubra todo el fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center center; /* Centra la imagen en el fondo */
@@ -172,7 +172,7 @@ h2{
     body {
         font-family: Roboto;
         /** background: rgb(22,141,171);*/
-        background-image: url('img/foto1.jpg');
+        background-image: url('img/fondoazul.jpg');
         display: flex;
         flex-direction: column;
         justify-content: center;
