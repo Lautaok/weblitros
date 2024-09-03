@@ -19,8 +19,9 @@ document.getElementById('calculatorForm').addEventListener('submit', function(e)
     }
 });
 
-//Play an animation back on second click
 
+//Play an animation back on second click
+/** 
 let iconMenu = document.querySelector('.bodymovinanim');
 
     let animationMenu = bodymovin.loadAnimation({
@@ -41,3 +42,5 @@ let iconMenu = document.querySelector('.bodymovinanim');
       animationMenu.setDirection(-directionMenu);
       animationMenu.play();
     });
+*/
+    
