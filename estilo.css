@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #b1eefa80;
+    /*background-color: #b1eefa80;*/
     background-image: url('img/foto.agua.jpg'); /* Ruta a la imagen de fondo */
     background-size: cover; /* Asegura que la imagen cubra todo el fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -133,12 +133,12 @@ h2{
 }
 
   
-  .bodymovinanim {
+  /**.bodymovinanim {
     width: 90%;
     max-width: 50px;
     margin-bottom: 30px;
     cursor: pointer;
-  }
+  } */
   
   .p2 {
     font-size: 12px;
@@ -171,7 +171,7 @@ h2{
 @media (max-width: 760px) {
     body {
         font-family: Roboto;
-        background: rgb(22,141,171);
+        /** background: rgb(22,141,171);*/
         background-image: url('img/foto1.jpg');
         display: flex;
         flex-direction: column;
