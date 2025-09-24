@@ -1,219 +1,190 @@
-body {
-    font-family: Arial, sans-serif;
-    /*background-color: #b1eefa80;*/
-    background-image: url('img/fotoagua.jpg'); /* Ruta a la imagen de fondo */
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center center; /* Centra la imagen en el fondo */
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    display: flex;
-    
+/* Variables de color para fácil mantenimiento */
+:root {
+    --primary-color: #005f73;
+    --secondary-color: #0a9396;
+    --background-overlay: rgba(0, 0, 0, 0.4);
+    --text-color: #e9d8a6;
+    --white-color: #ffffff;
+    --container-bg: rgba(0, 48, 73, 0.85);
+    --shadow-color: rgba(148, 218, 255, 0.6);
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
-    margin-top: 0 auto;
+    box-sizing: border-box;
 }
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    background: rgb(0,134,170);
-    background: linear-gradient(90deg, rgba(5, 5, 5, 0.331) 0%, rgba(234, 241, 245, 0.712) 12%);
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* QUITAMOS background-image DE AQUÍ */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     padding: 20px;
-    box-shadow: 0 0 10px rgb(255, 255, 255);
-    border-radius: 50px;
+    
+    /* AÑADIMOS ESTO PARA LA TRANSICIÓN SUAVE DEL FONDO */
+    transition: background-image 2.5s ease-in-out; 
+}
+
+/* El resto de tu CSS permanece igual */
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: var(--container-bg);
+    backdrop-filter: blur(10px); /* Efecto de desenfoque en el fondo */
+    padding: 30px 40px;
+    border-radius: 25px;
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 h1 {
     text-align: center;
-    color: #000000;
-    font-style:normal;
-    font-weight: bold;
-    text-align: center;
+    color: var(--white-color);
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
 
-    
+.instructions {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-size: 0.9em;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 label {
-    font-size: 25px;
-    color: rgb(0, 0, 0);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style:normal;
-    font-weight: bold;
-    text-align: center;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--text-color);
 }
 
-input {
-    padding: 10px;
+input, select {
+    padding: 12px;
     font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 80px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    width: 100%;
 }
 
 button {
-    padding: 10px;
-    font-size: 1em;
-    background-color: #000000;
-    color: #fff;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: 700;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
     border: none;
-    border-radius: 80px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: larger;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: lighter;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #0000009d;
+    background-color: #00bfb2;
+    transform: translateY(-2px);
 }
 
-#results {
-    margin-top: 20px;
-    text-align: center;
-    font-style: italic;
-    font-weight: bold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+/* Contenedor de resultados y recomendaciones */
+#results-container, #recommendations {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
 }
 
 #results p {
     font-size: 1.2em;
-    margin: 5px 0;
-    color: #000000;
+    margin: 10px 0;
+    color: var(--white-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Estilos para el footer */
+#results i {
+    color: var(--text-color);
+    font-size: 1.3em;
+}
+
+#recommendations h3 {
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+/* Clase para ocultar elementos y animaciones */
+.hidden {
+    display: none;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .footer {
-    background-color: #f1f1f10e; /* Color de fondo del footer */
-    color: #000000; /* Color del texto */
-    text-align: center; /* Centrar el texto */
-    padding: 10px 0; /* Espaciado interno */
-    position: fixed; /* Fijo en la parte inferior */
-    bottom: 0; /* Alineado en la parte inferior */
-    width: 100%; /* Ancho completo */
-    font-size: 14px; /* Tamaño del texto */
-    border-top: 1px solid #888888; /* Línea superior opcional */
-    font-weight: lighter;
-}
-
-.footer p {
-    margin: 0; /* Eliminar márgenes */
-}
-
-/* Estilos para el footer */
-.footer {
-    background-color: #f1f1f100; /* Color de fondo del footer */
-    color: #000000; /* Color del texto */
-    text-align: center; /* Centrar el texto */
-    padding: 10px 0; /* Espaciado interno */
-    position: fixed; /* Fijo en la parte inferior */
-    bottom: 0; /* Alineado en la parte inferior */
-    width: 100%; /* Ancho completo */
-    font-size: 14px; /* Tamaño del texto */
-    border-top: 1px solid #cccccc23; /* Línea superior opcional */
-}
-
-.footer p {
-    margin: 0; /* Eliminar márgenes */
-}
-
-h2{
-    text-align: left;
-    color: #000000;
-    font-style: italic;
-    font-weight: bold;
-}
-
-  
-  /**.bodymovinanim {
-    width: 90%;
-    max-width: 50px;
-    margin-bottom: 30px;
-    cursor: pointer;
-  } */
-  
-  .p2 {
-    font-size: 12px;
-    text-transform: uppercase;
-    opacity: 0.6;
-    letter-spacing: 2px;
+    background-color: transparent;
+    color: var(--white-color);
     text-align: center;
-  }
-  
-  .showmore {
+    padding: 10px 0;
     position: fixed;
-    top: 10px;
-    right: 10px;
-    font-size: 16px;
-    color: #f3f3f3c9;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.8em;
+}
+
+.showmore {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 1em;
+    color: var(--white-color);
     text-decoration: none;
-    background-color: #021a2c;
-    padding: 16px 35px;
-    border-radius: 80px;
-    line-height: 26px;
-    text-align: center;
-    font-weight: bold;
-    opacity: 0.8;
-  }
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
 
-
-
+.showmore:hover {
+    opacity: 1;
+}
 
 /* Media query para dispositivos móviles */
 @media (max-width: 760px) {
     body {
-        font-family: Roboto;
-        /** background: rgb(22,141,171);*/
-        background-image: url('img/fondoazul.jpg');
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-      
-    /*.container {
-        margin: 20px auto;
-        padding: 15px;
-        
-    }*/
+        padding: 10px;
+        /* QUITAMOS background-image DE AQUÍ EN MOBILE TAMBIÉN */
+    }
     .container {
-        margin: 20px auto;
-        padding: 15px;
-        max-width: 600px;
-        margin: 50px auto;
-        background: rgb(0,134,170);
-        background: linear-gradient(90deg, rgba(5, 5, 5, 0.331) 0%, rgba(255, 255, 255, 0.651) 12%);
         padding: 20px;
-        box-shadow: 0 0 10px rgb(255, 255, 255);
-        border-radius: 50px;
     }
-
-
-    label {
-        font-size: 20px;
-    }
-
-    input, button {
-        font-size: 0.9em;
-        padding: 8px;
-    }
-
     h1 {
-        font-size: 1.5em;
+        font-size: 1.8em;
     }
-
-    .footer {
-        font-size: 12px;
-        padding: 8px 0;
+    .showmore {
+        display: none; /* Ocultar en pantallas pequeñas para no estorbar */
     }
-    
 }

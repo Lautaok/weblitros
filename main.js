@@ -1,46 +1,85 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const calculatorForm = document.getElementById('calculatorForm');
 
-document.getElementById('calculatorForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const poolVolume = document.getElementById('poolVolume').value;
-    
-    if (poolVolume > 0) {
-        const chlorineAmount = (poolVolume * 1) / 20000; // 1 litro de cloro por 20,000 litros
-        const algaecideAmount = (poolVolume * 250) / 50000; // 80 ml de alguicida por 20,000 litros
-        const clarifierAmount = (poolVolume * 500) / 50000; // 200 ml de clarificante por 20,000 litros
-        const cloroPolvoAmount = (poolVolume * 4) / 10000; // 4 cucharadas de cloro en polvo cada 10.000 litros
+    // --- CONSTANTES DE DOSIFICACIÓN ---
+    // Dosis por cada 10,000 litros de agua
+    const DOSES = {
+        cloroLiquido: 0.5, // 0.5 litros
+        cloroPolvo: 20, // 20 gramos
+        alguicida: 100, // 100 ml
+        clarificante: 100 // 100 ml
+    };
+
+    // --- MULTIPLICADORES POR ESTADO DE LA PILETA ---
+    const MULTIPLIERS = {
+        initialTreatment: { cloro: 3, alguicida: 2, clarificante: 0 },
+        maintenance: { cloro: 1, alguicida: 1, clarificante: 1 },
+        murky: { cloro: 1.5, alguicida: 1, clarificante: 2 },
+        green: { cloro: 3, alguicida: 2.5, clarificante: 1.5 }
+    };
+
+    calculatorForm.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        document.getElementById('chlorineResult').innerText = `Cloro Líquido: ${chlorineAmount.toFixed(2)} litros`;
-        document.getElementById('algaecideResult').innerText = `Alguicida: ${algaecideAmount.toFixed(2)} ml`;
-        document.getElementById('clarifierResult').innerText = `Clarificante: ${clarifierAmount.toFixed(2)} ml`;
-        document.getElementById('cloroPolvoResult').innerText = `Cloro Polvo: ${cloroPolvoAmount.toFixed(0)} cucharada`;
-    } else {
-        document.getElementById('results').innerText = 'Por favor, introduce un volumen válido.';
+        const poolVolume = parseFloat(document.getElementById('poolVolume').value);
+        const poolCondition = document.getElementById('poolCondition').value;
+        
+        if (poolVolume > 0) {
+            const volumeRatio = poolVolume / 10000;
+            const multiplier = MULTIPLIERS[poolCondition];
+
+            // --- CÁLCULOS ---
+            const chlorineAmount = (DOSES.cloroLiquido * volumeRatio * multiplier.cloro).toFixed(2);
+            const powderChlorineAmount = (DOSES.cloroPolvo * volumeRatio * multiplier.cloro).toFixed(0);
+            const algaecideAmount = (DOSES.alguicida * volumeRatio * multiplier.alguicida).toFixed(0);
+            const clarifierAmount = (DOSES.clarificante * volumeRatio * multiplier.clarificante).toFixed(0);
+            
+            // --- MOSTRAR RESULTADOS ---
+            document.getElementById('chlorineResult').innerHTML = `<i class="fa-solid fa-bottle-droplet"></i> Cloro Líquido: <strong>${chlorineAmount} litros</strong>`;
+            document.getElementById('powderedChlorineResult').innerHTML = `<i class="fa-solid fa-pills"></i> Cloro Polvo/Granulado: <strong>${powderChlorineAmount} gramos</strong>`;
+            document.getElementById('algaecideResult').innerHTML = `<i class="fa-solid fa-leaf"></i> Alguicida: <strong>${algaecideAmount} ml</strong>`;
+            
+            // Lógica especial para el clarificante
+            if (clarifierAmount > 0) {
+                document.getElementById('clarifierResult').innerHTML = `<i class="fa-solid fa-water"></i> Clarificante: <strong>${clarifierAmount} ml</strong>`;
+                document.getElementById('clarifierResult').style.display = 'flex';
+            } else {
+                document.getElementById('clarifierResult').style.display = 'none';
+            }
+
+            // Animar y mostrar los contenedores de resultados
+            const resultsContainer = document.getElementById('results-container');
+            const recommendations = document.getElementById('recommendations');
+            
+            resultsContainer.classList.remove('hidden');
+            resultsContainer.classList.add('fade-in');
+            
+            recommendations.classList.remove('hidden');
+            recommendations.classList.add('fade-in');
+
+        } else {
+            // Manejo de error simple
+            alert('Por favor, introduce un volumen válido y positivo.');
+        }
+    });
+
+    // --- Lógica del Carrusel de Fondo ---
+    const backgroundImages = [
+        'url("img/pileta1.jpg")',
+        'url("img/pileta2.jpg")',
+        'url("img/pileta3.jpg")' // Asegúrate de tener esta imagen o cámbiala
+    ];
+    let currentIndex = 0;
+    const bodyElement = document.body;
+
+    function changeBackground() {
+        currentIndex = (currentIndex + 1) % backgroundImages.length;
+        bodyElement.style.backgroundImage = backgroundImages[currentIndex];
     }
+
+    // Cambiar la imagen cada 7 segundos (7000 milisegundos)
+    setInterval(changeBackground, 7000); 
+
+    // Establecer la imagen inicial al cargar la página
+    bodyElement.style.backgroundImage = backgroundImages[currentIndex];
 });
-
-
-//Play an animation back on second click
-/** 
-let iconMenu = document.querySelector('.bodymovinanim');
-
-    let animationMenu = bodymovin.loadAnimation({
-            container: iconMenu,
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            path: "https://raw.githubusercontent.com/thesvbd/Lottie-examples/master/assets/animations/calendar.json"
-    });
-
-    var directionMenu = 1;
-      iconMenu.addEventListener('mouseenter', (e) => {
-      animationMenu.setDirection(directionMenu);
-      animationMenu.play();
-    });
-
-      iconMenu.addEventListener('mouseleave', (e) => {
-      animationMenu.setDirection(-directionMenu);
-      animationMenu.play();
-    });
-*/
-    
