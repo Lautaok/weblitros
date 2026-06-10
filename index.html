@@ -56,8 +56,12 @@
     <a href="https://www.instagram.com/tech.fix.ok?igsh=MTczbXN1MHA1OHMxaw==" target="_blank" class="showmore">TECH-Fix</a>
     
     <footer class="footer">
-        <p>&copy; 2025 Lautaro Vera. Todos los derechos reservados.</p>
+        <p> &copy; <span id="year"></span>TECH-Fix. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
     
     <script src="main.js"></script>
 </body>
